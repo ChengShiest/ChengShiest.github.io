@@ -107,12 +107,15 @@
                 Method
             </h2>
             <p class="paragraph-3 nerf_text">
-                Overview of LoGoPrompt, which (a) generates class-wise visual prompts as synthetic images with text class
-                names and (b) reformulates the classification objective to visual prompt selection to address the chicken-and-egg challenge
-                by (c) the proposed min-max contrastive learning.
+                Architecture comparison between (a) our deeplydecoupled EdaDet and (b) existing open-vocabulary detection
+                framework. EdaDet separates the open-vocabulary classification
+                branch from the class-agnostic proposal generation branch at a
+                more shallow layer of the decoder. EdaDet first individually generates object proposals and predicts dense probabilities to categories
+                for local image semantics and then computes object proposals' categories based on the dense probabilities.
+
             </p>
             <div class="columns-5 w-row">
-                <img src="img/method.png" style="width:95%; margin-right:0px; margin-top:0px;">
+                <img src="img/eda_p3.png" style="width:95%; margin-right:0px; margin-top:0px;">
             </div>
         </div>
     </div>
@@ -124,23 +127,21 @@
         <s2>Performance</s2>
         <hr>
         <h2 class="grey-heading_nerf">
-                Base-to-new Generalization 
+            Open-vocabulary object detection results on COCO and LVIS datasets.
         </h2>
-        <p class="paragraph-3 nerf_text">
-            The superior performance of LoGoPrompt on both base and new classes shows its strong generalizability.
-        </p>
         <div class="columns-5 w-row">
-            <img src="img/p2.png" style="width:95%; margin-right:0px; margin-top:0px;">
+            <img src="img/eda_p4.png" style="width:95%; margin-right:0px; margin-top:0px;">
         </div>
 
         <h2 class="grey-heading_nerf">
-                Few-shot classification
+                Visulization
         </h2>
         <p class="paragraph-3 nerf_text">
-            LoGoPrompt consistently outperforms compared methods on all the 11 datasets. Following CoOp, ResNet-50 of CLIP is used as the vision backbone.
+            We visualize our detection results and semantic maps on (a) LVIS [17], (b) COCO [29] and (c)
+            out-of-distribution images from the open-source website.
         </p>
         <div class="columns-5 w-row">
-            <img src="img/p3.png" style="width:95%; margin-right:0px; margin-top:0px;">
+            <img src="img/eda_p5.png" style="width:95%; margin-right:0px; margin-top:0px;">
         </div>
 
 
