@@ -68,9 +68,27 @@
                 Abstract
             </h2>
             <p class="paragraph-3 nerf_text">
-                We present a novel approach to model and reconstruct radiance fields.
-                Unlike NeRF that uses pure MLPs,
-                we consider the full volume field as a 4D tensor and propose to factorize the tensor into multiple compact low-rank tensor components for efficient scene modeling.
+                Prompt engineering is a powerful tool used to enhance the performance of pre-trained models on downstream
+                tasks. For example, providing the prompt “Let's think step
+                by step” improved GPT-3's reasoning accuracy to 63% on
+                MutiArith while prompting “a photo of” filled with a class
+                name enables CLIP to achieve 80% zero-shot accuracy on
+                ImageNet. While previous research has explored prompt
+                learning for the visual modality, analyzing what constitutes
+                a good visual prompt specifically for image recognition is
+                limited. In addition, existing visual prompt tuning methods'
+                generalization ability is worse than text-only prompting
+                tuning. This paper explores our key insight: synthetic
+                text images are good visual prompts for vision-language
+                models! To achieve that, we propose our LoGoPrompt,
+                which reformulates the classification objective to the
+                visual prompt selection and addresses the chicken-and-egg
+                challenge of first adding synthetic text images as class-wise
+                visual prompts or predicting the class first. Without any
+                trainable visual prompt parameters, experimental results
+                on 16 datasets demonstrate that our method consistently
+                outperforms state-of-the-art methods in few-shot learning,
+                base-to-new generalization, and domain generalization
             </p>
             <div class="columns-5 w-row">
                 <img src="img/teaser_v6.png" style="width:95%; margin-right:0px; margin-top:0px;">
