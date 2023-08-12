@@ -96,29 +96,13 @@
                 Method
             </h2>
             <p class="paragraph-3 nerf_text">
-                We factorize radiance fields into compact components for scene modeling.
-                To doso, we apply both the classic CP decomposition and a new vector-matrix (VM) decomposition; both are illustrated in following figure:
+                Overview of LoGoPrompt, which (a) generates class-wise visual prompts as synthetic images with text class
+                names and (b) reformulates the classification objective to visual prompt selection to address the chicken-and-egg challenge
+                by (c) the proposed min-max contrastive learning.
             </p>
             <div class="columns-5 w-row">
-                <img src="img/tensor_factorizationpng.png" style="width:95%; margin-right:0px; margin-top:0px;">
+                <img src="img/method.png" style="width:95%; margin-right:0px; margin-top:0px;">
             </div>
-            <p class="paragraph-3 nerf_text">
-                Left: CP decomposition, which factorizes atensor as a sum of vector outer products.
-                Right: our vector-matrix decomposition, which factorizes a tensor as a sum of vector-matrix outer products.
-                Please refer to our paper for more decomposition derails.
-            </p>
-
-
-            <div class="columns-5 w-row">
-                <img src="img/pipeline.png" style="width:95%; margin-right:0px; margin-top:10px;">
-            </div>
-
-            <p class="paragraph-3 nerf_text">
-                We now present our TensoRF representation and reconstruction. For each shading location <b>x</b> = (x,y,z), we use linearly/bilinearly sampled values from the vector (<b>v</b>)/matrix (<b>M</b>) factors to compute the corresponding trilinearly interpolated values of the tensor components.
-                The density component values (A<sub>σ</sub>(x)) are summed to get the volume density directly (σ).
-                The appearance values (A<sub>c</sub>(x)) are concatenated into a vector (⊕[A<sub>c</sub><sup style="margin-left:-8px">m</sup>(x)]<sub>m</sub>) that is then multiplied by an appearance matrix (<b>B</b>) and sent to the decoding function S for RGB color (c) regression.
-                The decoding function S can be a Spherical Harmonic (SH) function or a fully-connected network (FCN).
-            </p>
         </div>
     </div>
 
