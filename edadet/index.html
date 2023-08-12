@@ -52,12 +52,17 @@
 
 <div class="container">
     <div class="w-container">
-        <h2 class="grey-heading_nerf">Our interesting findings</h2>
+        <h2 class="grey-heading_nerf">Illustration</h2>
 <!--    <div class="section">-->
         <div class="columns-5 w-row">
-            <img src="img/can_intro.png" style="width:100%; margin-right:0px; margin-top:0px;">
+            <img src="img/p1.png" style="width:100%; margin-right:0px; margin-top:0px;">
         </div>
-
+        <p class="paragraph-3 nerf_text">
+            Different approaches to building an open-vocabulary
+            detector: (a) generate pseudo “novel” proposals from extra train-
+            ing resources and VLMs, or (b) generalize from VLMs, and (c)
+            their performance comparison. †: with self-training
+        </p>
     </div>
 
 <!--<hr>-->
@@ -68,28 +73,34 @@
                 Abstract
             </h2>
             <p class="paragraph-3 nerf_text">
-                Prompt engineering is a powerful tool used to enhance the performance of pre-trained models on downstreamtasks. For example, providing the prompt “Let's think step
-                by step” improved GPT-3's reasoning accuracy to 63% on MutiArith while prompting “a photo of” filled with a class
-                name enables CLIP to achieve 80% zero-shot accuracy on ImageNet. While previous research has explored prompt
-                learning for the visual modality, analyzing what constitutes a good visual prompt specifically for image recognition is
-                limited. In addition, existing visual prompt tuning methods' generalization ability is worse than text-only prompting
-                tuning. 
+                Vision-language models such as CLIP have boosted the
+                performance of open-vocabulary object detection, where
+                the detector is trained on base categories but required to
+                detect novel categories. Existing methods leverage CLIP's
+                strong zero-shot recognition ability to align object-level embeddings with textual embeddings of categories. However,
+                we observe that using CLIP for object-level alignment results in overfitting to base categories, i.e., novel categories
+                most similar to base categories have particularly poor performance as they are recognized as similar base categories.
+                In this paper, we first identify that the loss of critical finegrained local image semantics hinders existing methods
+                from attaining strong base-to-novel generalization. Then,
+                we propose Early Dense Alignment (EDA) to bridge the gap
+                between generalizable local semantics and object-level prediction. In EDA, we use object-level supervision to learn
+                the dense-level rather than object-level alignment to maintain the local fine-grained semantics. Extensive experiments demonstrate our superior performance to competing
+                approaches under the same strict setting and without using
+                external training resources, i.e., improving the +8.4% novel
+                box AP50 on COCO and +3.9% rare mask AP on LVIS.
+
             </p>
             <div class="columns-5 w-row">
-                <img src="img/perf.png" style="width:70%; margin-right:0px; margin-top:0px;">
+                <img src="img/eda_p2.png" style="width:70%; margin-right:0px; margin-top:0px;">
             </div>
             <p class="paragraph-3 nerf_text">
-                This paper explores our key insight: synthetic
-                text images are good visual prompts for vision-language
-                models! To achieve that, we propose our LoGoPrompt,
-                which reformulates the classification objective to the
-                visual prompt selection and addresses the chicken-and-egg
-                challenge of first adding synthetic text images as class-wise
-                visual prompts or predicting the class first. Without any
-                trainable visual prompt parameters, experimental results
-                on 16 datasets demonstrate that our method consistently
-                outperforms state-of-the-art methods in few-shot learning,
-                base-to-new generalization, and domain generalization
+                The comparison between Object-level Alignment and our Early Dense Alignment (Eda) on (a1)-(b1) architectures, (a2)-(b2)
+                local image semantics and clustering results, and (c) box AP of novel categories similar to base categories. We list six novel categories
+                most similar to base categories by calculating the average similarity between the randomly sampled thousands of novel objects' visual
+                features and base categories' text embeddings. Our Eda: (1) successfully recognizes the fine-grained novel CD-player that is predicted to
+                base speaker by object-level alignment; (2) better groups local image semantics into object regions compared with CLIP; (3) achieves a
+                much higher novel box AP for predicting novel objects similar to base objects, showing that Eda can distinguish fine-grained details of
+                similar novel and base categories. In contrast, object-level alignment overfits base categories.
             </p>
 
             <h2 class="grey-heading_nerf">
